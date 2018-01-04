@@ -3,9 +3,9 @@
 ## Paths and Settings  - Start editing here !
 #########################################################################
 
-PREFIX = 
-BOWTIE2_PATH = 
-SAMTOOLS_PATH = 
-R_PATH = 
-PYTHON_PATH = 
-CLUSTER_SYS = 
+PREFIX=/home/git
+BOWTIE2_PATH=/home/git/binaries/bowtie2-current
+SAMTOOLS_PATH=/home/git/pyenv/shims/
+R_PATH=/usr/bin
+PYTHON_PATH=/home/git/pyenv/shims
+CLUSTER_SYS=TORQUE
