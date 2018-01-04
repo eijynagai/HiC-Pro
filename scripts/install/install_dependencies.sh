@@ -177,11 +177,12 @@ cd ./tmp
 
 ################ Install dependencies  ###################
 
-PREFIX_BIN=/usr/local/bin
+#PREFIX_BIN=/usr/local/bin
+PREFIX_BIN=/home/git/HiC-Pro/tempbin
 
-if [ ! -w $PREFIX_BIN ]; then
-    PREFIX_BIN=${HOME}/bin;
-fi
+#if [ ! -w $PREFIX_BIN ]; then
+#    PREFIX_BIN=${HOME}/bin;
+#fi
 
 if [[ $quiet == 0 ]]; then
     echo "Where should missing software prerequisites be installed ? [$PREFIX_BIN] "

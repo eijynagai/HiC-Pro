@@ -13,7 +13,7 @@ RAW_DIR = rawdata
 #######################################################################
 ## SYSTEM AND SCHEDULER - Start Editing Here !!
 #######################################################################
-N_CPU = 2
+N_CPU = 12
 LOGFILE = hicpro.log
 
 JOB_NAME = 
