@@ -79,7 +79,7 @@ do
 	    then
 		input=$(find -L $IN_DIR/${RES_FILE_NAME}/ -maxdepth 1 -name "*.matrix" -name "*$bsize*")
 		if [ ! -z $input ]; then
-		    cmd="${PYTHON_PATH}/python ${SCRIPTS}/ice --results_filename ${NORM_DIR}/${bsize}/${RES_FILE_NAME}_${bsize}_iced.matrix --filter_low_counts_perc ${FILTER_LOW_COUNT_PERC} --filter_high_counts_perc ${FILTER_HIGH_COUNT_PERC} --max_iter ${MAX_ITER} --eps ${EPS} --remove-all-zeros-loci --output-bias 1 --verbose 1 ${input} >> ${LDIR}/ice_${bsize}.log"
+		    cmd="${PYTHON_PATH}/python ${SCRIPTS}/ice --results_filename ${NORM_DIR}/${bsize}/${RES_FILE_NAME}_${bsize}_iced.matrix --filter_low_counts_perc ${FILTER_LOW_COUNT_PERC} --filter_high_counts_perc ${FILTER_HIGH_COUNT_PERC} --max_iter ${MAX_ITER} --eps ${EPS} --output-bias 1 ${input} >> ${LDIR}/ice_${bsize}.log" #  --verbose 1 --remove-all-zeros-loci
                     echo $cmd > ${LDIR}/ice_${bsize}.log
                     eval $cmd
 		else

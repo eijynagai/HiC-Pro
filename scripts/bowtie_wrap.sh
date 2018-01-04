@@ -81,6 +81,8 @@ global_align()
 	cmd=$cmd"> ${BOWTIE2_GLOBAL_OUTPUT_DIR}/${sample_dir}/${prefix}_${REFERENCE_GENOME}.bwt2glob.bam"
     fi
 
+    echo "" 1>&2
+    echo $cmd 1>&2
     exec_cmd $cmd
 }
 
@@ -108,7 +110,8 @@ local_align()
     mkdir -p ${LDIR}
 
     ## Starts trimming reads from the ligation site
-    tfile=`basename $file | sed -e s/.fastq$/_trimmed.fastq/`
+    #    tfile=`basename $file | sed -e s/.fastq$/_trimmed.fastq/`
+    tfile=`echo $file | sed -e "s/\.fastq/_trimmed.fastq/"`
     if [[ ${RM_LOCAL_NO_CUTSITE} == 1 ]]; then
 	${SCRIPTS}/cutsite_trimming --fastq $file --cutsite ${LIGATION_SITE} --out ${BOWTIE2_GLOBAL_OUTPUT_DIR}/${sample_dir}/$tfile --rmuntrim > ${LDIR}/readsTrimming.log 2>&1
     else
@@ -122,6 +125,9 @@ local_align()
 
     ## Run bowtie
     cmd="${BOWTIE2_PATH}/bowtie2 ${BOWTIE2_LOCAL_OPTIONS} --rg-id BML --rg SM:${prefix} --${FORMAT}-quals -p ${N_CPU} -x ${BOWTIE2_IDX} -U ${BOWTIE2_GLOBAL_OUTPUT_DIR}/${sample_dir}/${tfile} 2>${LDIR}/bowtie_${prefix}_local.log | ${SAMTOOLS_PATH}/samtools view -bS - > ${BOWTIE2_LOCAL_OUTPUT_DIR}/${sample_dir}/${prefix}_bwt2loc.bam"
+
+    echo "" 1>&2
+    echo $cmd 1>&2
     exec_cmd "$cmd"
 }
 
