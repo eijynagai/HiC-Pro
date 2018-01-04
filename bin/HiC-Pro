@@ -164,9 +164,9 @@ if [[ ! -z $GENOME_FRAGMENT_FILE && ! -e $GENOME_FRAGMENT_FILE ]]; then
     die "GENOME_FRAGMENT $GENOME_FRAGMENT_FILE not found. Exit"
 fi
 
-if [[ ! -z $BOWTIE2_IDX_PATH && ! -d $BOWTIE2_IDX_PATH ]]; then
-    die "BOWTIE2_IDX $BOWTIE2_IDX_PATH directory not found. Exit"
-fi
+#if [[ ! -z $BOWTIE2_IDX_PATH && ! -d $BOWTIE2_IDX_PATH ]]; then
+#    die "BOWTIE2_IDX $BOWTIE2_IDX_PATH directory not found. Exit"
+#fi
 
 if [[ ! -z $CAPTURE_TARGET && ! -e $CAPTURE_TARGET ]]; then
     die "CAPTURE_TARGET $CAPTURE_TARGET not found. Exit"
