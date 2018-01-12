@@ -110,8 +110,8 @@ local_align()
     mkdir -p ${LDIR}
 
     ## Starts trimming reads from the ligation site
-    #    tfile=`basename $file | sed -e s/.fastq$/_trimmed.fastq/`
-    tfile=`echo $file | sed -e "s/\.fastq/_trimmed.fastq/"`
+    tfile=`basename $file | sed -e s/.fastq$/_trimmed.fastq/`
+    #tfile=`basename $file | sed -e "s/\.fastq/_trimmed.fastq/"`
     if [[ ${RM_LOCAL_NO_CUTSITE} == 1 ]]; then
 	${SCRIPTS}/cutsite_trimming --fastq $file --cutsite ${LIGATION_SITE} --out ${BOWTIE2_GLOBAL_OUTPUT_DIR}/${sample_dir}/$tfile --rmuntrim > ${LDIR}/readsTrimming.log 2>&1
     else
