@@ -1,0 +1,11 @@
+
+#########################################################################
+## Paths and Settings  - Start editing here !
+#########################################################################
+
+PREFIX=/home
+BOWTIE2_PATH=/usr/bin/
+SAMTOOLS_PATH=/usr/bin/
+R_PATH=/opt/conda/bin
+PYTHON_PATH=/opt/conda/bin
+CLUSTER_SYS=TORQUE
