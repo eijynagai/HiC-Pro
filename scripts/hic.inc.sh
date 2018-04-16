@@ -119,12 +119,12 @@ add_fastq()
 
 get_R1()
 {
-    sed -e "s/${PAIR2_EXT}/${PAIR1_EXT}/"
+    sed -e "s/${PAIR2_EXT}.fastq/${PAIR1_EXT}.fastq/"
 }
 
 get_R2()
 {
-    sed -e "s/${PAIR1_EXT}/${PAIR2_EXT}/"
+    sed -e "s/${PAIR1_EXT}.fastq/${PAIR2_EXT}.fastq/"
 }
 
 get_pairs()
