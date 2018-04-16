@@ -177,8 +177,8 @@ cd ./tmp
 
 ################ Install dependencies  ###################
 
-#PREFIX_BIN=/usr/local/bin
-PREFIX_BIN=/home/git/HiC-Pro/tempbin
+PREFIX_BIN=/usr/local/bin
+#PREFIX_BIN=/home/git/HiC-Pro/tempbin
 
 #if [ ! -w $PREFIX_BIN ]; then
 #    PREFIX_BIN=${HOME}/bin;
