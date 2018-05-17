@@ -57,11 +57,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.di is True and args.bins is None:
-        print "--bins parameter is required when --di is specified"
+        print ("--bins parameter is required when --di is specified")
         sys.exit(1)
         
     if args.perchr is True and args.bins is None:
-        print "--bins parameter is required when --perchr is specified"
+        print ("--bins parameter is required when --perchr is specified")
         sys.exit(1)
     
     ## bin option
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     if args.di is True:
         bins = load_bed(args.bins)
         if len(bins) != counts.shape[1]:
-            print "Error -  number of rows in BED and matrix files are not equal"
+            print ("Error -  number of rows in BED and matrix files are not equal")
             sys.exit(1)
     
     ## Genome-wide dense matrix
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         #print lengths
 
         for i in range(1, len(lc)):
-            print str(chrnames[i-1]) + "..."
+            print (str(chrnames[i-1]) + "...")
             idxintra = np.where(((counts.row >= lc[i-1]) & (counts.row<lc[i])) & ((counts.col>=lc[i-1]) & (counts.col<lc[i])))[0]
          
             ## Subset the counts array and rescale the index based on cumulative lengths
@@ -124,8 +124,9 @@ if __name__ == "__main__":
             if args.output is None:
                 output_name = args.filename.replace(".matrix", "_" + str(chrnames[i-1]) + "_dense.matrix")
             else:
-                output_name = str(chrnames[i-1]) + "_" + args.output 
-        
+#                output_name = str(chrnames[i-1]) + "_" + args.output
+                output_name = args.output + "." + str(chrnames[i-1]) + ".matrix"
+                
             if args.di is True:
                 counts_perchr = np.hstack((bins[np.where(bins==str(chrnames[i-1]))[0]], counts_perchr))
 
